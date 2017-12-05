@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">KongjianDemo</string>
+    <string-array name="countries_array">
+        <item>北京</item>
+        <item>北平</item>
+        <item>北上广</item>
+        <item>shanghai</item>
+        <item>guangdong</item>
+
+    </string-array>
 </resources>

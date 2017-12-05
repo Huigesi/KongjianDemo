@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     //用arrayadapter做搜索内容
     private ArrayAdapter<String> arrayAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initAdapter() {
-        arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,initData());
+        //用资源数组做搜索内容
+        String[] countries=getResources().getStringArray(R.array.countries_array);
+        arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,countries);
+        //arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,initData());
         autoCompleteTextView.setAdapter(arrayAdapter);
     }
 //输入两个字母后开始提示
