@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -13,6 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private ToggleButton toggleButton;
     private Switch aSwitch;
@@ -20,13 +25,39 @@ public class MainActivity extends AppCompatActivity {
     private Button button1;
     private EditText editTextpsw, editTextname, editTextemail;
     private String name, email, psw;
+    private AutoCompleteTextView autoCompleteTextView;
+    //用arrayadapter做搜索内容
+    private ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         initView();
         setListener();
+        initAdapter();
+    }
+
+    private void initAdapter() {
+        arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,initData());
+        autoCompleteTextView.setAdapter(arrayAdapter);
+    }
+//输入两个字母后开始提示
+    private List<String> initData() {
+        List<String> list=new ArrayList<String>();
+        list.add("Afghanistan");
+        list.add("Albania");
+        list.add("Algeria");
+        list.add("American Samoa");
+        list.add("Andorra");
+        list.add("Angola");
+        list.add("bmerican Samoa");
+        list.add("Bndorra");
+        list.add("bngola");
+
+
+        return list;
     }
 
     private void setListener() {
@@ -145,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
         editTextemail = (EditText) findViewById(R.id.et_email);
         editTextname = (EditText) findViewById(R.id.et_name);
         editTextpsw = (EditText) findViewById(R.id.et_psw);
+        autoCompleteTextView=(AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
 
 
     }

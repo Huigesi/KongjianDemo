@@ -145,12 +145,20 @@
 
     <EditText
         android:id="@+id/search"
-        android:layout_width="fill_parent"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
         android:layout_x="5dp"
         android:layout_y="56dp"
         android:hint="发送内容"
         android:imeOptions="actionSend"
         android:inputType="text" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="191dp"
+        android:layout_height="wrap_content"
+        android:layout_x="149dp"
+        android:layout_y="51dp"
+        android:hint="搜索内容" />
 
 </AbsoluteLayout>
