@@ -8,6 +8,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Switch;
@@ -42,14 +43,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void initAdapter() {
         //用资源数组做搜索内容
-        String[] countries=getResources().getStringArray(R.array.countries_array);
-        arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,countries);
+        String[] countries = getResources().getStringArray(R.array.countries_array);
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countries);
         //arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,initData());
         autoCompleteTextView.setAdapter(arrayAdapter);
     }
-//输入两个字母后开始提示
+
+    //输入两个字母后开始提示
     private List<String> initData() {
-        List<String> list=new ArrayList<String>();
+        List<String> list = new ArrayList<String>();
         list.add("Afghanistan");
         list.add("Albania");
         list.add("Algeria");
@@ -135,8 +137,34 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+    //
+    public void onCheckboxClicked(View view){
+        //用onclick:onCheckboxClicked的方法做checkbox,可以不用一个一个去findviewid
+        boolean checked=((CheckBox)view).isChecked();
+        switch (view.getId()){
+            case R.id.checkBox:
+                if(checked){
+
+                }else {
+
+                }
+            case R.id.checkBox2:
+                if(checked){
+
+                }else {
+
+                }
+            case R.id.checkBox3:
+                if(checked){
+
+                }else {
+
+                }
+        }
+    }
 
     public void updateTB(View view) {
+        //把view强转成ToggleButton
         boolean on = ((ToggleButton) view).isChecked();
         if (on) {
             Toast.makeText(this, "打开", Toast.LENGTH_SHORT).show();
@@ -180,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
         editTextemail = (EditText) findViewById(R.id.et_email);
         editTextname = (EditText) findViewById(R.id.et_name);
         editTextpsw = (EditText) findViewById(R.id.et_psw);
-        autoCompleteTextView=(AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
+        autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
 
 
     }
