@@ -3,6 +3,7 @@ package com.example.administrator.kongjiandemo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.DatePicker;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -11,6 +12,7 @@ import java.util.Calendar;
 public class DatePickerActivity extends AppCompatActivity {
     private DatePicker datePicker;
     private int year,month,day;
+    private RatingBar ratingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +20,16 @@ public class DatePickerActivity extends AppCompatActivity {
         setContentView(R.layout.datepicker);
         initView();
         initDate();
+        initRating();
+    }
+
+    private void initRating() {
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(DatePickerActivity.this,rating+"",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initDate() {
@@ -38,6 +50,7 @@ public class DatePickerActivity extends AppCompatActivity {
 
     private void initView() {
         datePicker=(DatePicker)findViewById(R.id.datePicker);
+        ratingBar=(RatingBar)findViewById(R.id.ratingBar);
 
     }
 }
