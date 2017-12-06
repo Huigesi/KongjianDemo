@@ -204,4 +204,12 @@
         android:layout_y="312dp"
         android:text="时间" />
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="226dp"
+        android:layout_y="313dp"
+        android:text="滚动布局" />
+
 </AbsoluteLayout>

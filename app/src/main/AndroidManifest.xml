@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".DatePickerActivity" />
-        <activity android:name=".TimePickerActivity"></activity>
+        <activity android:name=".TimePickerActivity" />
+        <activity android:name=".ScrollActivity"></activity>
     </application>
 
 </manifest>

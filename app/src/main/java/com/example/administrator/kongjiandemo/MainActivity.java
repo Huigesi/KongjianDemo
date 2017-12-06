@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ToggleButton toggleButton;
     private Switch aSwitch;
     private RadioButton radioButton1, radioButton2;
-    private Button button1,button2,button3;
+    private Button button1,button2,button3,button4;
     private EditText editTextpsw, editTextname, editTextemail;
     private String name, email, psw;
     private AutoCompleteTextView autoCompleteTextView;
@@ -133,6 +133,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,ScrollActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -222,6 +229,8 @@ public class MainActivity extends AppCompatActivity {
         button1 = (Button) findViewById(R.id.button);
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
+        button4 = (Button) findViewById(R.id.button4);
+
 
 
         editTextemail = (EditText) findViewById(R.id.et_email);
