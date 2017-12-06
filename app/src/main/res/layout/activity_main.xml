@@ -188,4 +188,12 @@
         android:layout_y="138dp"
         android:text="注册" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="144dp"
+        android:layout_y="461dp"
+        android:text="下一页" />
+
 </AbsoluteLayout>

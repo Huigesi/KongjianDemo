@@ -1,5 +1,6 @@
 package com.example.administrator.kongjiandemo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ToggleButton toggleButton;
     private Switch aSwitch;
     private RadioButton radioButton1, radioButton2;
-    private Button button1;
+    private Button button1,button2;
     private EditText editTextpsw, editTextname, editTextemail;
     private String name, email, psw;
     private AutoCompleteTextView autoCompleteTextView;
@@ -118,6 +119,13 @@ public class MainActivity extends AppCompatActivity {
                 return handled;
             }
         });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,Main2Activity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -205,6 +213,8 @@ public class MainActivity extends AppCompatActivity {
         radioButton1 = (RadioButton) findViewById(R.id.radioButton);
         radioButton1 = (RadioButton) findViewById(R.id.radioButton2);
         button1 = (Button) findViewById(R.id.button);
+        button2 = (Button) findViewById(R.id.button2);
+
         editTextemail = (EditText) findViewById(R.id.et_email);
         editTextname = (EditText) findViewById(R.id.et_name);
         editTextpsw = (EditText) findViewById(R.id.et_psw);
