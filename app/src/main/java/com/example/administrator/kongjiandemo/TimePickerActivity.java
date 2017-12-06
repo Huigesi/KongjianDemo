@@ -31,7 +31,7 @@ public class TimePickerActivity extends AppCompatActivity {
                 Toast.makeText(TimePickerActivity.this,time,Toast.LENGTH_SHORT).show();
             }
         });
-        //设置刻度值
+        //设置最大值为100
         seekBar.setMax(100);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
