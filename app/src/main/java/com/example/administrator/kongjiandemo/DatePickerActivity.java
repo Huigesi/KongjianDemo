@@ -8,7 +8,7 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 
-public class Main2Activity extends AppCompatActivity {
+public class DatePickerActivity extends AppCompatActivity {
     private DatePicker datePicker;
     private int year,month,day;
 
@@ -31,7 +31,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 String date=year+"年"+(monthOfYear+1)+"月"+dayOfMonth+"日";
-                Toast.makeText(Main2Activity.this,date,Toast.LENGTH_SHORT).show();
+                Toast.makeText(DatePickerActivity.this,date,Toast.LENGTH_SHORT).show();
             }
         });
     }

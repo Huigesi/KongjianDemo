@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ToggleButton toggleButton;
     private Switch aSwitch;
     private RadioButton radioButton1, radioButton2;
-    private Button button1,button2;
+    private Button button1,button2,button3;
     private EditText editTextpsw, editTextname, editTextemail;
     private String name, email, psw;
     private AutoCompleteTextView autoCompleteTextView;
@@ -122,7 +122,14 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,Main2Activity.class);
+                Intent intent=new Intent(MainActivity.this,DatePickerActivity.class);
+                startActivity(intent);
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,TimePickerActivity.class);
                 startActivity(intent);
             }
         });
@@ -214,6 +221,8 @@ public class MainActivity extends AppCompatActivity {
         radioButton1 = (RadioButton) findViewById(R.id.radioButton2);
         button1 = (Button) findViewById(R.id.button);
         button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+
 
         editTextemail = (EditText) findViewById(R.id.et_email);
         editTextname = (EditText) findViewById(R.id.et_name);
