@@ -1,6 +1,7 @@
 package com.example.administrator.kongjiandemo;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -24,9 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private ToggleButton toggleButton;
     private Switch aSwitch;
     private RadioButton radioButton1, radioButton2;
-    private Button button1,button2,button3,button4;
+    private Button button1,button2,button3,button4,button5;
     private EditText editTextpsw, editTextname, editTextemail;
     private String name, email, psw;
+    private AlertDialog.Builder builder;
     private AutoCompleteTextView autoCompleteTextView;
     //用arrayadapter做搜索内容
     private ArrayAdapter<String> arrayAdapter;
@@ -40,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
         initView();
         setListener();
         initAdapter();
+        setAlert();
+    }
+
+    private void setAlert() {
+        builder.setTitle("提示框");
+        builder.setMessage("你好");
     }
 
     private void initAdapter() {
@@ -140,6 +148,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder.show();
+            }
+        });
 
     }
 
@@ -230,8 +244,9 @@ public class MainActivity extends AppCompatActivity {
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
         button4 = (Button) findViewById(R.id.button4);
+        button5 = (Button) findViewById(R.id.button5);
 
-
+        builder = new AlertDialog.Builder(this);
 
         editTextemail = (EditText) findViewById(R.id.et_email);
         editTextname = (EditText) findViewById(R.id.et_name);

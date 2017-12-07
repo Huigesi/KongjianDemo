@@ -212,4 +212,12 @@
         android:layout_y="313dp"
         android:text="滚动布局" />
 
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="9dp"
+        android:layout_y="373dp"
+        android:text="警告框" />
+
 </AbsoluteLayout>

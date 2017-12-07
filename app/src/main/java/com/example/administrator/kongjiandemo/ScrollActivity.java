@@ -23,8 +23,9 @@ public class ScrollActivity extends AppCompatActivity {
             ImageView imageView = new ImageView(this);
             Drawable drawable = getResources().getDrawable(R.drawable.a);
             imageView.setImageDrawable(drawable);
+            //以此消除边距
             imageView.setAdjustViewBounds(true);
-            linearLayout.addView(imageView);
+            linearLayout.addView(imageView,i);
             i++;
         }
 
