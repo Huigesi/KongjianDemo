@@ -218,6 +218,6 @@
         android:layout_height="wrap_content"
         android:layout_x="9dp"
         android:layout_y="373dp"
-        android:text="警告框" />
+        android:text="对话框" />
 
 </AbsoluteLayout>

@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private Button button1, button2, button3, button4, button5;
     private EditText editTextpsw, editTextname, editTextemail;
     private String name, email, psw;
-    private AlertDialog.Builder builder;
     private AutoCompleteTextView autoCompleteTextView;
     //用arrayadapter做搜索内容
     private ArrayAdapter<String> arrayAdapter;
@@ -45,69 +44,8 @@ public class MainActivity extends AppCompatActivity {
         initView();
         setListener();
         initAdapter();
-        setDialog();
     }
 
-    private void setDialog() {
-        builder = new AlertDialog.Builder(this);
-        builder.setTitle("提示框");
-        //当对话框里有内容，setMessage要去掉
-        //builder.setMessage("你好");
-
-        //自定义对话框
-        //能加载布局，但不方便做功能
-        //builder.setView(R.layout.dialog_custom);
-        View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.dialog_custom, null);
-        builder.setView(view);
-        final EditText editText1 = (EditText) view.findViewById(R.id.editText);
-        final EditText editText2 = (EditText) view.findViewById(R.id.editText2);
-
-
-        builder.setIcon(R.drawable.longface);
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String editText11 = editText1.getText().toString().trim();
-                String editText22 = editText2.getText().toString().trim();
-                Toast.makeText(MainActivity.this, editText11 + "" + editText22, Toast.LENGTH_SHORT).show();
-            }
-        });
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MainActivity.this, "确定", Toast.LENGTH_SHORT).show();
-            }
-        });
-        builder.setNeutralButton("忽略", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MainActivity.this, "忽略", Toast.LENGTH_SHORT).show();
-            }
-        });
-        final String[] hobby = {"1", "2", "3"};
-        //单选
-       /*  builder.setSingleChoiceItems(hobby,-1, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });*/
-        //多选
-        /*builder.setMultiChoiceItems(hobby, new boolean[]{true, true, true}, new DialogInterface.OnMultiChoiceClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-
-            }
-        });*/
-        //列表
-        /*builder.setItems(hobby, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), hobby[which], Toast.LENGTH_SHORT).show();
-            }
-        });*/
-
-
-    }
 
     private void initAdapter() {
         //用资源数组做搜索内容
@@ -209,7 +147,8 @@ public class MainActivity extends AppCompatActivity {
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                builder.show();
+                Intent intent = new Intent(MainActivity.this, DialogActivity.class);
+                startActivity(intent);
             }
         });
 
