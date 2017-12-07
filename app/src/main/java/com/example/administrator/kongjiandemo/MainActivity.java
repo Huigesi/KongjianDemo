@@ -1,5 +1,6 @@
 package com.example.administrator.kongjiandemo;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private ToggleButton toggleButton;
     private Switch aSwitch;
     private RadioButton radioButton1, radioButton2;
-    private Button button1,button2,button3,button4,button5;
+    private Button button1, button2, button3, button4, button5;
     private EditText editTextpsw, editTextname, editTextemail;
     private String name, email, psw;
     private AlertDialog.Builder builder;
@@ -42,12 +43,31 @@ public class MainActivity extends AppCompatActivity {
         initView();
         setListener();
         initAdapter();
-        setAlert();
+        setDialog();
     }
 
-    private void setAlert() {
+    private void setDialog() {
         builder.setTitle("提示框");
         builder.setMessage("你好");
+        builder.setIcon(R.drawable.longface);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this,"确定",Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this,"确定",Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNeutralButton("忽略", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            Toast.makeText(MainActivity.this,"忽略",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initAdapter() {
@@ -121,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 boolean handled = false;
                 if (actionId == EditorInfo.IME_ACTION_SEND) {
-                    // Send the user message
                     handled = true;
                 }
                 return handled;
@@ -130,21 +149,21 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,DatePickerActivity.class);
+                Intent intent = new Intent(MainActivity.this, DatePickerActivity.class);
                 startActivity(intent);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,TimePickerActivity.class);
+                Intent intent = new Intent(MainActivity.this, TimePickerActivity.class);
                 startActivity(intent);
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,ScrollActivity.class);
+                Intent intent = new Intent(MainActivity.this, ScrollActivity.class);
                 startActivity(intent);
             }
         });
@@ -173,27 +192,28 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-    //
-    public void onCheckboxClicked(View view){
-        //用onclick:onCheckboxClicked的方法做checkbox,可以不用一个一个去findviewid
-        boolean checked=((CheckBox)view).isChecked();
-        switch (view.getId()){
-            case R.id.checkBox:
-                if(checked){
 
-                }else {
+    //
+    public void onCheckboxClicked(View view) {
+        //用onclick:onCheckboxClicked的方法做checkbox,可以不用一个一个去findviewid
+        boolean checked = ((CheckBox) view).isChecked();
+        switch (view.getId()) {
+            case R.id.checkBox:
+                if (checked) {
+
+                } else {
 
                 }
             case R.id.checkBox2:
-                if(checked){
+                if (checked) {
 
-                }else {
+                } else {
 
                 }
             case R.id.checkBox3:
-                if(checked){
+                if (checked) {
 
-                }else {
+                } else {
 
                 }
         }
