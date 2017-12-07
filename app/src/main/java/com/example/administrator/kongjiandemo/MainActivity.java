@@ -7,6 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
@@ -48,40 +49,64 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setDialog() {
+        builder = new AlertDialog.Builder(this);
         builder.setTitle("提示框");
         //当对话框里有内容，setMessage要去掉
         //builder.setMessage("你好");
+
+        //自定义对话框
+        //能加载布局，但不方便做功能
+        //builder.setView(R.layout.dialog_custom);
+        View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.dialog_custom, null);
+        builder.setView(view);
+        final EditText editText1 = (EditText) view.findViewById(R.id.editText);
+        final EditText editText2 = (EditText) view.findViewById(R.id.editText2);
+
+
         builder.setIcon(R.drawable.longface);
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MainActivity.this,"确定",Toast.LENGTH_SHORT).show();
+                String editText11 = editText1.getText().toString().trim();
+                String editText22 = editText2.getText().toString().trim();
+                Toast.makeText(MainActivity.this, editText11 + "" + editText22, Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MainActivity.this,"确定",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "确定", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNeutralButton("忽略", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-            Toast.makeText(MainActivity.this,"忽略",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "忽略", Toast.LENGTH_SHORT).show();
             }
         });
-       String[] hobby={"1","2","3"};
+        final String[] hobby = {"1", "2", "3"};
+        //单选
        /*  builder.setSingleChoiceItems(hobby,-1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
             }
         });*/
-        builder.setMultiChoiceItems(hobby, new boolean[]{true, true, true}, new DialogInterface.OnMultiChoiceClickListener() {
+        //多选
+        /*builder.setMultiChoiceItems(hobby, new boolean[]{true, true, true}, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
             }
-        });
+        });*/
+        //列表
+        /*builder.setItems(hobby, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), hobby[which], Toast.LENGTH_SHORT).show();
+            }
+        });*/
+
+
     }
 
     private void initAdapter() {
@@ -280,7 +305,6 @@ public class MainActivity extends AppCompatActivity {
         button4 = (Button) findViewById(R.id.button4);
         button5 = (Button) findViewById(R.id.button5);
 
-        builder = new AlertDialog.Builder(this);
 
         editTextemail = (EditText) findViewById(R.id.et_email);
         editTextname = (EditText) findViewById(R.id.et_name);
