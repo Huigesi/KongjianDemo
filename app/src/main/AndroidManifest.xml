@@ -19,7 +19,8 @@
         <activity android:name=".DatePickerActivity" />
         <activity android:name=".TimePickerActivity" />
         <activity android:name=".ScrollActivity" />
-        <activity android:name=".DialogActivity"></activity>
+        <activity android:name=".DialogActivity" />
+        <activity android:name=".ListViewActivity"></activity>
     </application>
 
 </manifest>
