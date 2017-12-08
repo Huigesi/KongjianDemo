@@ -30,4 +30,20 @@
         android:layout_y="20dp"
         android:text="自定义框" />
 
+    <Button
+        android:id="@+id/button_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="14dp"
+        android:layout_y="85dp"
+        android:text="日期" />
+
+    <Button
+        android:id="@+id/button_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="118dp"
+        android:layout_y="88dp"
+        android:text="时间" />
+
 </AbsoluteLayout>
