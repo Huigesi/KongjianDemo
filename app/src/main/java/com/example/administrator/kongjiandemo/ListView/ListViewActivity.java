@@ -1,12 +1,13 @@
-package com.example.administrator.kongjiandemo;
+package com.example.administrator.kongjiandemo.ListView;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.administrator.kongjiandemo.R;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,6 @@ public class ListViewActivity extends AppCompatActivity {
         initView();
         initData();
         initAdapter();
-
     }
 
 
