@@ -5,16 +5,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="24dp"
-        android:layout_y="21dp"
-        android:text="警告框" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_single"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="109dp"
@@ -22,7 +15,7 @@
         android:text="单选框" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_multi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="192dp"
@@ -33,8 +26,8 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="29dp"
-        android:layout_y="103dp"
+        android:layout_x="12dp"
+        android:layout_y="20dp"
         android:text="自定义框" />
 
 </AbsoluteLayout>

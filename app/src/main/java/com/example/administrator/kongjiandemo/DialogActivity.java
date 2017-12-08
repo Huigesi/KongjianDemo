@@ -6,14 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class DialogActivity extends AppCompatActivity {
 
-    private AlertDialog.Builder builder_custom;
-    private Button alertButton,singleButton,MultiButton,customButton;
+    private AlertDialog.Builder builder_custom,builder_single,builder_multi;
+    private Button singleButton,MultiButton,customButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,8 @@ public class DialogActivity extends AppCompatActivity {
 
     private void initView() {
         customButton=(Button)findViewById(R.id.button4);
+        singleButton=(Button)findViewById(R.id.button_single);
+        MultiButton=(Button)findViewById(R.id.button_multi);
     }
 
     private void initDialog() {
@@ -38,7 +41,7 @@ public class DialogActivity extends AppCompatActivity {
         //自定义对话框
         //能加载布局，但不方便做功能
         //builder.setView(R.layout.dialog_custom);
-        View view = LayoutInflater.from(DialogActivity.this).inflate(R.layout.dialog_custom, null);
+        final View view = LayoutInflater.from(DialogActivity.this).inflate(R.layout.dialog_custom, null);
         builder_custom.setView(view);
         final EditText editText1 = (EditText) view.findViewById(R.id.editText);
         final EditText editText2 = (EditText) view.findViewById(R.id.editText2);
@@ -51,6 +54,7 @@ public class DialogActivity extends AppCompatActivity {
                 String editText11 = editText1.getText().toString().trim();
                 String editText22 = editText2.getText().toString().trim();
                 Toast.makeText(DialogActivity.this, editText11 + "" + editText22, Toast.LENGTH_SHORT).show();
+
             }
         });
         builder_custom.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -67,18 +71,22 @@ public class DialogActivity extends AppCompatActivity {
         });
         final String[] hobby = {"1", "2", "3"};
         //单选
-       /*  builder.setSingleChoiceItems(hobby,-1, new DialogInterface.OnClickListener() {
+        builder_single = new AlertDialog.Builder(this);
+        builder_single.setTitle("单选");
+        builder_single.setSingleChoiceItems(hobby,-1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
             }
-        });*/
+        });
+
         //多选
-        /*builder.setMultiChoiceItems(hobby, new boolean[]{true, true, true}, new DialogInterface.OnMultiChoiceClickListener() {
+        builder_multi = new AlertDialog.Builder(this);
+        builder_multi.setMultiChoiceItems(hobby, new boolean[]{true, true, true}, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
             }
-        });*/
+        });
         //列表
         /*builder.setItems(hobby, new DialogInterface.OnClickListener() {
             @Override
@@ -93,6 +101,18 @@ public class DialogActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 builder_custom.show();
+            }
+        });
+        singleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder_single.show();
+            }
+        });
+        MultiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder_multi.show();
             }
         });
 
