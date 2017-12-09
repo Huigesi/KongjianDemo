@@ -229,12 +229,21 @@
         android:text="listview" />
 
     <TextView
-        android:id="@+id/textView"
-        style="@style/CodeFont"
+        android:id="@+id/textView1"
+        style="@style/CodeFont.Red.Big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="10dp"
         android:layout_y="430dp"
+        android:text="样式style" />
+
+    <TextView
+        android:id="@+id/textVie"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="10dp"
+        android:layout_y="462dp"
         android:text="样式style" />
 
 </AbsoluteLayout>
