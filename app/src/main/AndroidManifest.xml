@@ -20,7 +20,8 @@
         <activity android:name=".TimePickerActivity" />
         <activity android:name=".ScrollActivity" />
         <activity android:name=".DialogActivity" />
-        <activity android:name=".ListView.ListViewActivity"></activity>
+        <activity android:name=".ListView.ListViewActivity" />
+        <activity android:name=".ButtonActivity"></activity>
     </application>
 
 </manifest>
