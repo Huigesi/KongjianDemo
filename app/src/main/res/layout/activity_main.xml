@@ -228,4 +228,13 @@
         android:layout_y="373dp"
         android:text="listview" />
 
+    <TextView
+        android:id="@+id/textView"
+        style="@style/CodeFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="10dp"
+        android:layout_y="430dp"
+        android:text="样式style" />
+
 </AbsoluteLayout>
