@@ -8,9 +8,9 @@
         android:angle="90"/>
     <!--内边距-->
     <padding android:left="7dp"
-        android:top="700dp"
+        android:top="7dp"
         android:right="7dp"
         android:bottom="7dp" />
     <!--圆角-->
-    <corners android:radius="18dp" />
+    <corners android:radius="180dp" />
 </shape>
