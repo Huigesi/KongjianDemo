@@ -10,15 +10,36 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class ButtonActivity extends AppCompatActivity {
+    private ListView listView;
+    private ArrayList<String> list;
+    private ArrayAdapter<String> arrayAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button);
         initView();
+        initdata();
+        //长按浮动菜单点击事件必用
+        registerForContextMenu(listView);
     }
+
+    private void initdata() {
+        list=new ArrayList<String>();
+        for (int i=0;i<20;i++) {
+            list.add("item"+i);
+        }
+        arrayAdapter=new ArrayAdapter<String>(ButtonActivity.this,android.R.layout.simple_list_item_1,list);
+        listView.setAdapter(arrayAdapter);
+    }
+
     //——————左上角菜单——————
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -52,25 +73,30 @@ public class ButtonActivity extends AppCompatActivity {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.game_menu,menu);
+        inflater.inflate(R.menu.context_menu,menu);
         super.onCreateContextMenu(menu, v, menuInfo);
     }
-    //浮动菜单点击事件
+    //长按浮动菜单点击事件
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info=(AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
         switch (item.getItemId()){
-            case R.id.create_new:
-                Intent intent = new Intent(ButtonActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+            case R.id.edit:
+                //获取当前选中的id
+                String items=arrayAdapter.getItem(info.position);
+                Toast.makeText(ButtonActivity.this,"编辑"+items,Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.help:
+            case R.id.share:
+                Toast.makeText(ButtonActivity.this,"分享",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.delete:
+                Toast.makeText(ButtonActivity.this,"删除",Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onContextItemSelected(item);
     }
 
     private void initView() {
+        listView=(ListView)findViewById(R.id.listview);
     }
 }
