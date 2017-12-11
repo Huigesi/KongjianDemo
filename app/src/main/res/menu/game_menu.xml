@@ -4,7 +4,7 @@
     <item android:id="@+id/new_game"
         android:icon="@drawable/ic_toc_black_48dp"
         android:title="更多"
-        app:showAsAction="always">
+        app:showAsAction="never">
         <menu>
         <item android:id="@+id/create_new"
             android:title="新建" />

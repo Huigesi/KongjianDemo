@@ -7,6 +7,7 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -30,16 +31,23 @@ public class ButtonActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.create_new:
-                Intent intent = new Intent(ButtonActivity.this, MainActivity.class);
-                startActivity(intent);
+
+
+            case R.id.help:
+                Intent intent2 = new Intent(ButtonActivity.this, MainActivity.class);
+                startActivity(intent2);
                 finish();
                 break;
-            case R.id.help:
+            //为子菜单添加点击事件直接用
+            case R.id.create_new:
+                Intent intent1 = new Intent(ButtonActivity.this, MainActivity.class);
+                startActivity(intent1);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
+
     //————浮动菜单————
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
