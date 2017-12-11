@@ -17,4 +17,11 @@
         android:layout_y="6dp"
         android:background="@drawable/gradient_box"
         android:text="shape" />
+
+    <include
+        android:layout="@layout/bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="105dp"
+        android:layout_y="478dp" />
 </AbsoluteLayout>
