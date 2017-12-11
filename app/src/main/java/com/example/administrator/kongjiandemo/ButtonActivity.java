@@ -14,12 +14,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class ButtonActivity extends AppCompatActivity {
     private ListView listView;
+    private Button popup_btn;
     private ArrayList<String> list;
     private ArrayAdapter<String> arrayAdapter;
     //短按菜单显示
@@ -81,6 +83,14 @@ public class ButtonActivity extends AppCompatActivity {
                 //return true;
             }
         });
+
+    }
+    //popup菜单
+    public void showPopup(View v) {
+        PopupMenu popup = new PopupMenu(this, v);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.context_menu, popup.getMenu());
+        popup.show();
     }
 
     private void initdata() {
@@ -150,5 +160,6 @@ public class ButtonActivity extends AppCompatActivity {
 
     private void initView() {
         listView=(ListView)findViewById(R.id.listview);
+
     }
 }
