@@ -3,6 +3,7 @@ package com.example.administrator.kongjiandemo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ActionMode;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,6 +22,45 @@ public class ButtonActivity extends AppCompatActivity {
     private ListView listView;
     private ArrayList<String> list;
     private ArrayAdapter<String> arrayAdapter;
+    //短按菜单显示
+    private ActionMode mActionMode;
+    private ActionMode.Callback mActionModeCallback=new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.context_menu, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()){
+                case R.id.edit:
+                    //获取当前选中的id
+                   // String items=arrayAdapter.getItem(item.getItemId());
+                    Toast.makeText(ButtonActivity.this,"编辑",Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.share:
+                    Toast.makeText(ButtonActivity.this,"分享",Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.delete:
+                    Toast.makeText(ButtonActivity.this,"删除",Toast.LENGTH_SHORT).show();
+                    break;
+            }
+            return false;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            mActionMode=null;
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +68,19 @@ public class ButtonActivity extends AppCompatActivity {
         initView();
         initdata();
         //长按浮动菜单点击事件必用
-        registerForContextMenu(listView);
+        //registerForContextMenu(listView);
+        //短按
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (mActionMode != null) {
+                    //return false;
+                }
+                mActionMode = startActionMode(mActionModeCallback);
+                view.setSelected(true);
+                //return true;
+            }
+        });
     }
 
     private void initdata() {
